@@ -21,9 +21,9 @@ class _LogInScreenState extends State<LogInScreen> {
   }
 
   @override
-  void dispose() {
+  void deactivate() {
     Provider.of<AuthProviderApp>(context, listen: false).providerDispose();
-    super.dispose();
+    super.deactivate();
   }
 
   @override
