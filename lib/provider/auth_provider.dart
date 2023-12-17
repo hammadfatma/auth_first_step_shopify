@@ -58,6 +58,7 @@ class AuthProviderApp extends ChangeNotifier {
               text: 'Sorry, user not found',
             );
           }
+
         } else if (e.code == 'wrong-password') {
           if (context.mounted) {
             await QuickAlert.show(

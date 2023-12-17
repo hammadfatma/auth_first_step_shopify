@@ -25,6 +25,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
     super.deactivate();
   }
 
+
   @override
   Widget build(BuildContext context) {
     return Consumer<AuthProviderApp>(
