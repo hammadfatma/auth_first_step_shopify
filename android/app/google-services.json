@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "588002334455",
+    "project_id": "auth-first-step-shopify",
+    "storage_bucket": "auth-first-step-shopify.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:588002334455:android:7553a4a6a71382cb7b65f2",
+        "android_client_info": {
+          "package_name": "com.example.auth_first_step_shopify"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBjuYYXiULQ0q-nau8hD-DZimnj_ETQjPg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
