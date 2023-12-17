@@ -17,10 +17,7 @@ import 'package:flutter/foundation.dart'
 class DefaultFirebaseOptions {
   static FirebaseOptions get currentPlatform {
     if (kIsWeb) {
-      throw UnsupportedError(
-        'DefaultFirebaseOptions have not been configured for web - '
-        'you can reconfigure this by running the FlutterFire CLI again.',
-      );
+      return web;
     }
     switch (defaultTargetPlatform) {
       case TargetPlatform.android:
@@ -28,10 +25,7 @@ class DefaultFirebaseOptions {
       case TargetPlatform.iOS:
         return ios;
       case TargetPlatform.macOS:
-        throw UnsupportedError(
-          'DefaultFirebaseOptions have not been configured for macos - '
-          'you can reconfigure this by running the FlutterFire CLI again.',
-        );
+        return macos;
       case TargetPlatform.windows:
         throw UnsupportedError(
           'DefaultFirebaseOptions have not been configured for windows - '
@@ -49,6 +43,15 @@ class DefaultFirebaseOptions {
     }
   }
 
+  static const FirebaseOptions web = FirebaseOptions(
+    apiKey: 'AIzaSyAVZbkBrG_CQfzpiPX12acKfPeVVdnMSyk',
+    appId: '1:588002334455:web:4830f7d7eafd5d727b65f2',
+    messagingSenderId: '588002334455',
+    projectId: 'auth-first-step-shopify',
+    authDomain: 'auth-first-step-shopify.firebaseapp.com',
+    storageBucket: 'auth-first-step-shopify.appspot.com',
+  );
+
   static const FirebaseOptions android = FirebaseOptions(
     apiKey: 'AIzaSyBjuYYXiULQ0q-nau8hD-DZimnj_ETQjPg',
     appId: '1:588002334455:android:7553a4a6a71382cb7b65f2',
@@ -64,5 +67,14 @@ class DefaultFirebaseOptions {
     projectId: 'auth-first-step-shopify',
     storageBucket: 'auth-first-step-shopify.appspot.com',
     iosBundleId: 'com.example.authFirstStepShopify',
+  );
+
+  static const FirebaseOptions macos = FirebaseOptions(
+    apiKey: 'AIzaSyDOMZaFyEVXpVgWclUFH4rlWIkMs7WbKgc',
+    appId: '1:588002334455:ios:9aa50a2e61465e497b65f2',
+    messagingSenderId: '588002334455',
+    projectId: 'auth-first-step-shopify',
+    storageBucket: 'auth-first-step-shopify.appspot.com',
+    iosBundleId: 'com.example.authFirstStepShopify.RunnerTests',
   );
 }
