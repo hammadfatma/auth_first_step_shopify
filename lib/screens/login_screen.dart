@@ -1,7 +1,7 @@
 import 'package:auth_first_step_shopify/screens/signup_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import '../provider/auth_provider.dart';
+import '../providers/auth_provider.dart';
 import '../widgets/button_widget.dart';
 import '../widgets/email_field_widget.dart';
 import '../widgets/pass_field_widget.dart';
@@ -32,6 +32,7 @@ class _LogInScreenState extends State<LogInScreen> {
     return Consumer<AuthProviderApp>(
       builder: (context, value, child) {
         return Scaffold(
+          appBar: AppBar(),
           body: SingleChildScrollView(
             child: Center(
               child: Padding(
@@ -83,7 +84,7 @@ class _LogInScreenState extends State<LogInScreen> {
                             ),
                             GestureDetector(
                               onTap: (){
-                                Navigator.push(context, MaterialPageRoute(builder: (context)=>SignUpScreen()));
+                                Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=>SignUpScreen()));
                               },
                               child: Text(
                                 'create a new account.',

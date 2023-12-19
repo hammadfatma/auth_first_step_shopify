@@ -13,26 +13,28 @@ class SplashScreen extends StatefulWidget {
 }
 
 class _SplashScreenState extends State<SplashScreen> {
+  StreamSubscription<User?>? listener;
   @override
   void initState() {
-    Timer(
-        Duration(seconds: 9),(){}
-    );
+    // Timer(
+    //     Duration(seconds: 9),(){}
+    // );
     checkUser();
     super.initState();
   }
 
   void checkUser() async{
-    FirebaseAuth.instance.authStateChanges().listen((user) {
+    await Future.delayed(const Duration(seconds: 1));
+    listener= FirebaseAuth.instance.authStateChanges().listen((user) {
       if (user == null) {
-        Navigator.push(
+        Navigator.pushReplacement(
           context,
           MaterialPageRoute(
             builder: (context) => LogInScreen(),
           ),
         );
       } else {
-        Navigator.push(
+        Navigator.pushReplacement(
           context,
           MaterialPageRoute(
             builder: (context) => HomeScreen(),
@@ -42,6 +44,11 @@ class _SplashScreenState extends State<SplashScreen> {
     });
   }
 
+  @override
+  void dispose(){
+    listener?.cancel();
+    super.dispose();
+  }
   @override
   Widget build(BuildContext context) {
     return Material(

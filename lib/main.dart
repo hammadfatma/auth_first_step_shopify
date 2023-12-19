@@ -1,4 +1,5 @@
-import 'package:auth_first_step_shopify/provider/auth_provider.dart';
+import 'package:auth_first_step_shopify/providers/auth_provider.dart';
+import 'package:auth_first_step_shopify/providers/home_provider.dart';
 import 'package:auth_first_step_shopify/screens/splash_screen.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
@@ -11,8 +12,11 @@ Future<void> main() async {
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
-  runApp(ChangeNotifierProvider(
-    create: (_) => AuthProviderApp(),
+  runApp(MultiProvider(
+    providers: [
+      ChangeNotifierProvider(create: (_) => AuthProviderApp()),
+      ChangeNotifierProvider(create: (_) => HomeProvider()..getDataFromFireStore()),
+    ],
     child: const MyApp(),
   ));
 }

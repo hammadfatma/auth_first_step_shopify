@@ -40,7 +40,7 @@ class AuthProviderApp extends ChangeNotifier {
             );
           }
           if (context.mounted) {
-            Navigator.push(
+            Navigator.pushReplacement(
               context,
               MaterialPageRoute(
                 builder: (context) => HomeScreen(),
@@ -88,7 +88,7 @@ class AuthProviderApp extends ChangeNotifier {
             );
           }
           if (context.mounted) {
-            Navigator.push(
+            Navigator.pushReplacement(
               context,
               MaterialPageRoute(
                 builder: (context) => LogInScreen(),
@@ -127,7 +127,7 @@ class AuthProviderApp extends ChangeNotifier {
       );
     }
     if (context.mounted) {
-      Navigator.push(
+      Navigator.pushReplacement(
         context,
         MaterialPageRoute(
           builder: (context) => SplashScreen(),
