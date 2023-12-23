@@ -1,5 +1,5 @@
-class Categories {
-  final String id;
+class CategoriesModel {
+  final String? id;
   final String title;
   final String backColor1;
   final String backColor2;
@@ -7,8 +7,8 @@ class Categories {
   final String shadowColor;
   // final String description;
 
-  Categories(
-      {required this.id,
+  CategoriesModel(
+      {this.id,
       required this.title,
       this.imagePath,
       required this.shadowColor,

@@ -1,10 +1,10 @@
-class Advertisements {
-  final String id;
+class AdvertisementsModel {
+  final String? id;
   final String imageURL;
   final String title;
 
-  Advertisements(
-      {required this.title, required this.imageURL, required this.id});
+  AdvertisementsModel(
+      {required this.title, required this.imageURL, this.id});
 
   // factory Advertisements.fromJson(Map<String, dynamic> json) {
   //   return Advertisements(

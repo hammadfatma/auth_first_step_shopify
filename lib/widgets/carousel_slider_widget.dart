@@ -1,4 +1,4 @@
-import 'package:auth_first_step_shopify/providers/home_provider.dart';
+import 'package:auth_first_step_shopify/providers/ads_provider.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -8,7 +8,7 @@ class CarouselSliderWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Consumer<HomeProvider>(builder: (context, value, child) {
+    return Consumer<AdsProvider>(builder: (context, value, child) {
       return CarouselSlider(
         items: value.ads.map((item) {
           return Padding(

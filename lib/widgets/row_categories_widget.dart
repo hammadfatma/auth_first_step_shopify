@@ -1,0 +1,25 @@
+import 'package:auth_first_step_shopify/widgets/categories_circle_widget.dart';
+import 'package:flutter/material.dart';
+
+import '../models/category_model.dart';
+
+class RowCategoriesWidget extends StatelessWidget {
+  const RowCategoriesWidget({super.key, required this.categories});
+  final List<CategoriesModel> categories;
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      children: [
+        ...categories.map((item) => CategoriesCircleWidget(category: item)),
+        CategoriesCircleWidget(
+          category: CategoriesModel(
+              title: 'See All',
+              backColor1: '0xffffffff',
+              backColor2: '0xffffffff',
+              imagePath: 'null',
+              shadowColor: '0xffe7eaf0'),
+        ),
+      ],
+    );
+  }
+}
