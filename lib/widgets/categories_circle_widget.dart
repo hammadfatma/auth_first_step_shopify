@@ -36,7 +36,7 @@ class CategoriesCircleWidget extends StatelessWidget {
                 ),
                 child: Center(
                   child: category.imagePath != 'null'
-                      ? Image.asset(
+                      ? Image.network(
                           category.imagePath!,
                           width: 38,
                           height: 38,

@@ -1,6 +1,7 @@
 import 'package:auth_first_step_shopify/providers/ads_provider.dart';
 import 'package:auth_first_step_shopify/providers/categories_provider.dart';
 import 'package:auth_first_step_shopify/providers/products_provider.dart';
+import 'package:auth_first_step_shopify/screens/product_details_screen.dart';
 import 'package:auth_first_step_shopify/widgets/carousel_slider_widget.dart';
 import 'package:auth_first_step_shopify/widgets/products_card_widget.dart';
 import 'package:auth_first_step_shopify/widgets/row_categories_widget.dart';
@@ -106,7 +107,9 @@ class HomeScreen extends StatelessWidget {
                         if (snapshot.hasError) {
                           return Text('Error While Get Data');
                         } else if (snapshot.hasData) {
-                          return CarouselSliderWidget();
+                          return CarouselSliderWidget(
+                            advertisements: snapshot.data ?? [],
+                          );
                         } else {
                           return Text('No Data Found');
                         }
@@ -139,8 +142,20 @@ class HomeScreen extends StatelessWidget {
                               axisCount: GridLayoutEnum.threeElementsInRow,
                               shrinkWrap: true,
                               children: snapshot.data
-                                      ?.map((item) =>
-                                          ProductWidget(product: item))
+                                      ?.map((item) => ProductWidget(
+                                            product: item,
+                                            onTap: () {
+                                              Navigator.push(
+                                                context,
+                                                MaterialPageRoute(
+                                                  builder: (context) =>
+                                                      ProductDetailsPage(
+                                                    product: item,
+                                                  ),
+                                                ),
+                                              );
+                                            },
+                                          ))
                                       .toList() ??
                                   []);
                         } else {
